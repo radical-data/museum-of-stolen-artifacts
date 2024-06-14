@@ -1,14 +1,14 @@
-INSERT INTO holders (name, website_url) VALUES
-('Holder One', 'http://holderone.com'),
-('Holder Two', 'http://holdertwo.com'),
-('Holder Three', 'http://holderthree.com');
+INSERT INTO holders (name, website_url, slug) VALUES
+('Holder One', 'http://holderone.com', 'holder-one'),
+('Holder Two', 'http://holdertwo.com', 'holder-two'),
+('Holder Three', 'http://holderthree.com', 'holder-three');
 
-INSERT INTO more_than_things (name) VALUES
-('Thing One'),
-('Thing Two'),
-('Thing Three'),
-('Thing Four'),
-('Thing Five');
+INSERT INTO more_than_things (name, slug) VALUES
+('Thing One', 'thing-one'),
+('Thing Two', 'thing-two'),
+('Thing Three', 'thing-three'),
+('Thing Four', 'thing-four'),
+('Thing Five', 'thing-five');
 
 INSERT INTO holder_more_than_things (holder_id, more_than_things_id) VALUES
 (1, 1), -- Holder One holds Thing One

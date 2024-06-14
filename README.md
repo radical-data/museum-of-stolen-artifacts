@@ -1,38 +1,38 @@
-# create-svelte
+# Museum of Stolen Artifacts
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A community-led museum for items taken through colonialism and the process of their restitution. First Rapa Nui, then the rest ✊🏽
 
-## Creating a project
+## Install
 
-If you're seeing this, you've probably already done this step. Congrats!
+1. Clone the repository: `git clone https://github.com/radical-data/museum-of-stolen-artifacts.git`
+1. Navigate to the project folder: `cd museum-of-stolen-artifacts`.
+1. Install dependencies: `npm install`.
+1. Set up a Supabase (local) project with the [official CLI](https://supabase.com/docs/guides/cli/getting-started).
+1. Set the environment variables.
+   1. Copy the `.env.example` file to `.env` (manually or with `cp .env.example .env`).
+   1. Get your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the output of `supabase start`.
+1. Run the DB migrations locally with `supabase db reset`.
+1. Fetch the data from Supabase: `npm run fetch-data`.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Develop
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To develop Museum of Stolen Artifacts locally:
 
-## Developing
+1. Start a development server: `npm run dev`.
+1. Museum of Stolen Artifacts will be running locally at http://localhost:5173/.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Build
 
-```bash
-npm run dev
+To create a production version of Museum of Stolen Artifacts:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Build it: `npm run build`.
+1. (Optional) You can preview the production build with `npm run preview`.
 
-## Building
+## Deploy to Production
 
-To create a production version of your app:
+To use Supabase as a remote backend make sure to link your local development with your remote Supabase project:
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Make sure you have a Supabase acount and connect it to the supabase cli: `supabase login`
+1. Link a specific remote project `supabase link --project-ref <project-ref>` ([more info](https://supabase.com/docs/reference/cli/supabase-link))
+1. Run migrations on remote DB `supabase db push` ([more info](https://supabase.com/docs/reference/cli/supabase-db-push))
+1. Make sure that the env vars `SUPABASE_URL` and `SUPABASE_ANON_KEY` do point to the correct production project and not the local containers. You can grab them from inside [your Supabase project's dashboard](https://supabase.com/dashboard/project/_/settings/api).
